@@ -109,7 +109,3 @@ class Spider:
     def _testimony_handler(self, soup: BeautifulSoup):
         pass
 
-
-if __name__ == '__main__':
-    s = Spider('0')
-    s.run()
