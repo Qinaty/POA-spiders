@@ -87,7 +87,6 @@ class Spider:
             for rt in raw_texts:
                 text = rt.text
                 f.write(f'{text}\n')
-        exit(6)
 
     def _brochure_handler(self, soup: BeautifulSoup):
         pass
