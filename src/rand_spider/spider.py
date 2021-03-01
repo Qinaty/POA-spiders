@@ -45,6 +45,7 @@ class Spider:
                 else:
                     self._logger.debug(f'No resources are available')
                     break
+            cnt += 1
 
             url = self._url_manage.new_url()
             self._logger.debug(f'New url: {url}')
@@ -110,7 +111,3 @@ class Spider:
     def _testimony_handler(self, soup: BeautifulSoup):
         pass
 
-
-if __name__ == '__main__':
-    s = Spider('0')
-    s.run()
