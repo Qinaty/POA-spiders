@@ -45,6 +45,7 @@ class Spider:
                 else:
                     self._logger.debug(f'No resources are available')
                     break
+            cnt += 1
 
             url = self._url_manage.new_url()
             html = get_html(url)
