@@ -47,6 +47,7 @@ class Spider:
                     break
 
             url = self._url_manage.new_url()
+            self._logger.debug(f'New url: {url}')
             html = get_html(url)
             # 构造解析器
             soup = BeautifulSoup(html, features="html.parser")
@@ -70,7 +71,7 @@ class Spider:
             elif doc_type == 'testimony':
                 self._testimony_handler(soup)
             else:
-                self._logger.warning(f'Find new document type: {doc_type}')
+                self._logger.warning(f'Found new document type: {doc_type}')
 
         self._logger.debug('Done')
 
@@ -87,7 +88,6 @@ class Spider:
             for rt in raw_texts:
                 text = rt.text
                 f.write(f'{text}\n')
-        exit(6)
 
     def _brochure_handler(self, soup: BeautifulSoup):
         pass

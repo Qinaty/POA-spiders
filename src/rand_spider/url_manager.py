@@ -60,6 +60,7 @@ class URLManager:
         # 记录当前正在爬取的目录页
         page_cnt = self.start_page
         while page_cnt != self.end_page:
+            self._logger.debug(f'Parsing page {page_cnt}')
             # 构造目录页url
             dir_url = f'https://www.rand.org/topics/china.html?page={page_cnt}'
             # 获取目录页html
