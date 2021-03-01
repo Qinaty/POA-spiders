@@ -11,7 +11,7 @@ _FORMAT = '[%(name)-10s] %(levelname)-8s %(message)s'
 _LEVEL = logging.DEBUG
 
 
-def get_logger(name: str):
+def get_logger(name: str) -> logging.Logger:
     """
     :param name: 日志记录器的名字
     :return: 以name命名的日志记录器
@@ -42,7 +42,7 @@ def get_html(url: str) -> bytes:
     return html
 
 
-def letters(str_: str):
+def letters(str_: str) -> str:
     """
     过滤字符串中的其他字符，只保留字母
     :param str_: 待过滤字符串

@@ -1,0 +1,88 @@
+Drawing upon decades of experience, RAND provides research services, systematic analysis, and innovative thinking to a global clientele that includes government agencies, foundations, and private-sector firms.
+The Pardee RAND Graduate School (PRGS.edu) is the largest public policy Ph.D. program in the nation and the only program based at an independent public policy research organization—the RAND Corporation.
+Assistant Policy Researcher, RAND; Ph.D. Candidate, Pardee RAND Graduate School
+Assistant Policy Researcher; Ph.D. Candidate, Pardee RAND Graduate School
+blog
+December 21, 2020
+It has truly been a year unlike any in living memory. 2020 has been surreal. Turbulent. And for so many, painful.
+COVID-19 has taken more than 1.5 million lives, wreaked untold economic despair and personal heartbreak, and upended nearly every aspect of daily life.
+The pandemic also shined a spotlight on long-standing inequities; the virus tends to hurt most those who have the least.
+That spotlight burned even brighter this summer, after Minneapolis police killed George Floyd, an unarmed Black man. Floyd's death spurred protests around the world and an overdue reckoning with the nation's history of systemic inequity and structural racism.
+The U.S. presidential election, another defining moment of 2020, ensured that the New Year will bring new leadership to Washington. Ending the pandemic will no doubt top President-elect Joe Biden's agenda, but a wide array of policy challenges awaits his administration.
+At RAND, we're reflecting not only on this extraordinary year, but on our efforts to inform constructive discussions and evidence-based decisions about the issues that matter most—through objective, nonpartisan research and analysis.
+Assembled by our editorial staff, here are the 10 research projects that resonated most with rand.org readers in 2020.
+— Pete Wilmoth
+Photo by AndreyPopov/Getty Images
+Income inequality is one aspect of economics that resonates with many Americans: It feels like the rich are getting richer, while so many others have a hard time just getting by. But what if income growth had stayed as equitable as it was in the three decades after World War II?
+RAND experts answered this question by using a new method to quantify the scale of the U.S. income gap. Here are their key findings:
+The authors of the study were surprised by the sheer magnitude of this inequity. “There is no way of slicing the numbers where people come out ahead,” said RAND mathematician Carter Price.
+— Deanna Lee
+Teachers work outside of their school building as they prepare for the delayed start of the school year, Brooklyn, New York, September 14, 2020
+Photo by Brendan McDermid/Reuters
+This spring, schools across America had to rapidly shift to remote learning. Nine months later, most are still either providing entirely online instruction or using a hybrid model. 
+To learn more about this unprecedented period, RAND conducted nationally representative surveys of teachers and principals.
+When schools shut down in April and May, nearly all teachers reported that they were providing distance learning. However, most said that they couldn't cover the full curriculum. Challenges persisted in the fall: Teachers reported having trouble contacting all of their students.
+As a result of these challenges, morale is low. About 80 percent of teachers said that they feel burnt out, and one-quarter said that they were likely to leave the profession altogether.
+Of course, the shift to distance learning is having a tremendous effect on students, too. And importantly, the negative consequences affect some groups more than others; high-poverty schools and schools that serve high percentages of students of color have been especially hard hit. For example, principals in the highest-poverty schools reported that, on average, only 80 percent of students had adequate internet access. The pandemic has likely made existing disparities in educational opportunities and outcomes even worse.
+As the pandemic rages on, these findings highlight the urgent need to focus on making schools safer to attend in person.
+— D.L.
+Image by Chara Williams/RAND Corporation
+The goal of RAND's Gun Policy in America initiative is to provide policymakers and the public with objective, factual information on the effects of gun laws. In 2020, the initiative launched several new resources.
+RAND researchers took a close look at household firearm ownership by state. They developed a longitudinal database of state-level estimates of gun ownership from 1980 to 2016. Knowing how many Americans own guns, and how that number varies over time and across the country, is important for understanding how laws affect gun ownership and outcomes such as suicides, homicides, and mass shootings.
+We also expanded our database of state firearm laws, which now includes required reporting of lost and stolen guns, as well as firearm removal at the scene of domestic violence incidents.
+We launched a new resource for teachers who are interested in helping high school students discuss and understand gun policy research.
+Finally, a RAND study found that implementing the most restrictive combination of three common policies—child-access-prevention laws, right-to-carry laws, and stand-your-ground laws—is associated with a reduction in firearm-related deaths over time. This data visualization breaks down the findings, showing how regulations on the ways that guns are stored, carried, and used could save lives.
+— April Stock
+Design by Rick Penn-Kraus/RAND Corporation
+Tabletop games that focus on the military typically explore how one armed force might match up against another. But they usually don't account for the bigger picture.
+That's why our experts created “Hedgemony,” a new kind of strategic game—and the first RAND has offered to the public.
+In Hedgemony, players represent either the United States and its allies, or its key adversaries. Every game begins with a specific scenario, with players then developing “hedging” strategies and trying to execute their plans.
+During a turn (each of which represents about one year), players must make tough choices about how to use their resources. For example, they might have to decide whether to procure new forces, modernize existing forces, or improve a specific capability.
+Players can choose to cooperate—or not. The ultimate goal is to gain more global influence than their competitors.
+— D.L.
+Photo by the RAND Corporation
+Understanding patterns of COVID-19 spread can help policymakers estimate the effects of travel-related interventions, such as restricting air travel from various countries.
+RAND researchers created a new tool that combines COVID-19 case data with detailed air travel data to visualize how infections and commercial air travel have interacted to export coronavirus risk across the world.
+Here are a few key findings:
+— Gabby Peterson
+Image design by Katherine Wu/RAND Corporation; photos by Dmytro (PRC flag with yuan) and Mike (Chinese soldiers)/Adobe Stock
+Tensions between the United States and China continued to rise throughout 2020. How will the relationship between the world's two most powerful countries change in the coming decades? And will Beijing reach its ambitious goals?
+To explore these questions, a team of RAND experts mapped out four possible scenarios for China in 2050: triumphant, ascendant, stagnant, and imploding.
+The researchers rated two of these scenarios as the most plausible. An “ascendant China” would largely succeed at achieving its long-term goals. Alternatively, a “stagnant China” would confront major challenges and be mostly unsuccessful at implementing Beijing's grand strategy.
+However, the kind of country China becomes is neither preordained nor completely beyond America's influence. The United States should prepare for a China whose role on the global stage grows steadily.
+— G.P.
+Turkish President Recep Tayyip Erdo&gbrevean speaks during a ceremony marking the second anniversary of the attempted coup at the presidential palace in Ankara, July 15, 2018
+Photo by Umit Bektas/Reuters
+The United States has relied on a strategic partnership with Turkey for more than 60 years. The two nations have cooperated on countering terrorism and violent extremism, preventing the proliferation of weapons of mass destruction, enhancing energy security, and promoting prosperity and development.
+But this partnership has become strained in recent years; Ankara's and Washington's interests are not as aligned as they once were.
+In Turkey, anti-American sentiment has increased, along with doubts about the reliability of the U.S. commitment to Turkish security. And in the United States, concerns are growing over the authoritarian drift under President Recep Tayyip Erdoğan and tensions between Turkey and its neighbors.
+RAND researchers assessed the key challenges confronting the U.S.-Turkish relationship over the coming decade and recommended potential ways to sustain it, such as diplomatically defusing differences over Syria and continuing U.S. and NATO military engagements with Turkey to counterbalance Russian influence.
+— A.S.
+A Delta IV rocket successfully launches the Global Positioning System IIF-5 satellite from Space Launch Complex-37 at Cape Canaveral Air Force Station, Florida, February 20, 2014
+Photo by Ben Cooper/United Launch Alliance
+Why and where will the next war occur? Who will the United States fight alongside and against? And how will future conflicts be fought?
+RAND experts sought to answer these questions in a series of reports. The researchers took a holistic approach, exploring the geopolitical, economic, military, environmental, legal, and informational trends that will shape conflict through 2030.
+The authors find that the United States will confront a series of strategic dilemmas. Future warfare will place more demands on U.S. forces and pull limited resources in opposite directions. America could break with the past and become more selective about committing its forces. Or it could double down on its commitments, knowing that doing so may come with higher costs.
+— A.S.
+Russian President Vladimir Putin takes part in a video conference call at the Novo-Ogaryovo state residence outside Moscow, May 18, 2020
+Photo by Alexei Nikolsky/Reuters
+Ahead of the 2020 U.S. election season, a series of RAND reports helped policymakers and the public understand online foreign interference in national, state, and local elections—and how to mitigate this threat.
+Overall, Russian interference in U.S. elections focuses on creating distrust, with the goal of paralyzing the American political process. This type of interference isn't new. Moscow's recent election meddling is based largely on strategies developed by the Soviet Union during the Cold War. However, new technology and the rise of social media have made it easier for Russia to implement its propaganda campaigns.
+Such a campaign was likely underway in early 2020. After examining 2.2 million tweets, RAND experts found convincing evidence of a coordinated effort, likely foreign, to influence the U.S. presidential election. Activity by two types of Twitter accounts—“trolls” and “superconnectors”—may have worked in favor of President Trump, and against President-elect Biden.
+But do attempts to influence Americans via social media actually work in the first place? A randomized controlled trial of more than 1,500 Facebook users helped RAND researchers understand how Americans react emotionally to Russian propaganda. They found that Moscow's political memes are particularly effective at generating strong reactions along partisan lines. This increased the chances that study participants reported “liking” or sharing the Russian content. But there's good news: People may spread foreign propaganda less often when they know where it comes from.
+— G.P.
+Shoppers line up to enter a Home Depot store as they practice social distancing to help slow the spread of COVID-19 in St. Louis, Missouri, April 4, 2020
+Photo by Lawrence Bryant/Reuters
+The most popular RAND research of 2020 launched in early May.
+“Quarantine,” “social distancing,” and “flatten the curve” still felt like new additions to everyday speech. Parents hoped that their kids could return to in-person school in the fall. And after weeks of widespread shutdowns in March and April, state and local officials were weighing the potential effects of relaxing or tightening various disease-fighting measures.
+In an effort to support evidence-based decisions, RAND researchers developed an interactive tool that was among the first to combine epidemiological and economic models. The tool estimated the effects on new cases, fatalities, unemployment claims, and more.
+We've all lived through what's happened since. But one of the researchers' conclusions is especially resonant today: It's rarely helpful to think of these difficult policy decisions as a zero-sum game between public health and the economy. The two crises are, in so many ways, the same crisis.
+According to RAND economist Aaron Strong, the situation is more like a classic prisoner's dilemma. Individuals are tempted to engage in risky behavior, potentially at great cost to their communities.
+“We can either open up completely and have significant consequences,“ Strong said, ”or we can cooperate and create an outcome that may be costly in the short run. But we'll have a healthier population and a healthier economy in the long run.”
+— P.W.
+Get weekly updates from RAND.
+Blog
+Dec 18, 2020
+The RAND Corporation is a research organization that develops solutions to public policy challenges to help make communities throughout the world safer and more secure, healthier and more prosperous. RAND is nonprofit, nonpartisan, and committed to the public interest.
+Subscribe to the weekly Policy Currents newsletter to receive updates on the issues that matter most.
+Get weekly updates from RAND.
