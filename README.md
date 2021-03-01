@@ -14,3 +14,14 @@ or just
 ```commandline
 pip install -r requirements.txt
 ```
+
+## TODO list
+- [x] blog handler
+- [ ] brochure handler
+- [ ] commentary handler
+- [ ] journal article handler
+- [ ] multimedia handler
+- [ ] news release handler
+- [ ] report handler
+- [ ] testimony handler
+- [ ] have a good sleep😴
