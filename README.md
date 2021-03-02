@@ -2,8 +2,8 @@
 A demo showing how to build a simple web spider.
 
 ## Tested Environment
+> + Windows 10 Pro 64-bit 20H2
 > + python 3.7.9
-> + pip 21.0.1
 
 ## Dependencies
 ```commandline
@@ -24,4 +24,4 @@ pip install -r requirements.txt
 - [ ] news release handler
 - [ ] report handler
 - [ ] testimony handler
-- [ ] have a good sleep😴
+- [x] have a good sleep😴
