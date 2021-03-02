@@ -7,7 +7,7 @@ from requests import get
 import logging
 
 # 配置日志格式和显示等级，仅在本模块内使用，外部不可见
-_FORMAT = '[%(name)-10s] %(levelname)-8s %(message)s'
+_FORMAT = '[%(name)-10s] %(levelname)-8s: %(message)s'
 _LEVEL = logging.DEBUG
 
 
@@ -36,7 +36,8 @@ def get_html(url: str) -> bytes:
         with open('rand_spider\\user_agents.json', 'r') as f:
             get_html.ua_pool = load(f)['user-agents']
 
-    ua = choice(get_html.ua_pool)  # 随机从ua_pool中取出一条user-agent
+    # 随机从ua_pool中取出一条user-agent
+    ua = choice(get_html.ua_pool)
     headers = {'user-agent': ua}
     html = get(url, headers=headers).content
     return html

@@ -9,7 +9,6 @@ class Spider:
     """
     从URLManager处获取url并解析，将内容存储到本地
     """
-
     def __init__(self, dir_: str, maximum=-1, start_page=1, end_page=-1):
         """
         :param dir_: 文档存储路径

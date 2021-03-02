@@ -40,6 +40,7 @@ class URLManager:
         """
         if self.is_empty:
             self._logger.warning('Get url from an empty queue.')
+            return None
         else:
             return self.queue.pop(0)
 
