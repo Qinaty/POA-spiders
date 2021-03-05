@@ -3,8 +3,7 @@ A demo showing how to build a simple catalog-based web spider.
 
 ## Tested Environment
 > + Windows 10 Pro 64-bit 20H2
-> + python 3.7.9
-
+> + python 3.9.2
 ## Dependencies
 ```commandline
 pip install beautifulsoup4
