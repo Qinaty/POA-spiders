@@ -1,5 +1,5 @@
 # spider_demo
-A demo showing how to build a simple web spider.
+A demo showing how to build a simple catalog-based web spider.
 
 ## Tested Environment
 > + Windows 10 Pro 64-bit 20H2
