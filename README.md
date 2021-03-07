@@ -1,5 +1,5 @@
-# spider_demo
-A demo showing how to build a simple catalog-based web spider.
+# POA-spiders
+Web crawlers used in Public Opinions Analysis
 
 ## Tested Environment
 > + Windows 10 Pro 64-bit 20H2
@@ -17,13 +17,15 @@ pip install -r requirements.txt
 
 ## TODO list
 
-### rand
-  - [x] blog handler
-  - [ ] brochure handler
-  - [ ] commentary handler
-  - [ ] journal article handler
-  - [ ] multimedia handler
-  - [ ] news release handler
-  - [ ] report handler
-  - [ ] testimony handler
-  - [x] have a good sleep😴
+### Rand
+ - [x] blog handler
+ - [ ] brochure handler
+ - [ ] commentary handler
+ - [ ] journal article handler
+ - [ ] multimedia handler
+ - [ ] news release handler
+ - [ ] report handler
+ - [ ] testimony handler
+ - [x] have a good sleep😴
+### CNN
+ - [ ] Optimize searching strategy

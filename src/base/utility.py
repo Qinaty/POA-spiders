@@ -1,6 +1,7 @@
 """
 工具库
 """
+
 from random import choice
 from json import load
 from requests import get
@@ -33,7 +34,7 @@ def get_html(url: str) -> bytes:
     """
     # 如果是第一次调用，需要读取User-Agents列表到ua_pool中
     if not hasattr(get_html, 'ua_pool'):
-        with open('rand_spider\\user_agents.json', 'r') as f:
+        with open('base\\user_agents.json', 'r') as f:
             get_html.ua_pool = load(f)['user-agents']
 
     # 随机从ua_pool中取出一条user-agent

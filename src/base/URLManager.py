@@ -1,13 +1,14 @@
 """
-URLManager定义文件
+BaseURLManager定义文件
 """
+
 from threading import Thread
-from bs4 import BeautifulSoup
+from abc import abstractmethod
 
-from .utility import *
+from src.base.utility import *
 
 
-class URLManager:
+class BaseURLManager:
     """
     从目录页获取文章URL，为Spider提供待爬取的URL
     """
@@ -25,7 +26,7 @@ class URLManager:
         self.queue = list()
         # 工作状态
         self.is_working = False
-        self._logger = get_logger('URLManager')
+        self._logger = get_logger(self.__class__.__name__)
 
     @property
     def is_empty(self) -> bool:
@@ -62,22 +63,22 @@ class URLManager:
         page_cnt = self.start_page
         while page_cnt != self.end_page:
             self._logger.debug(f'Parsing page {page_cnt}')
-            # 构造目录页url
-            dir_url = f'https://www.rand.org/topics/china.html?page={page_cnt}'
-            # 获取目录页html
-            html = get_html(dir_url)
-            # 构造解析器
-            soup = BeautifulSoup(html, features="html.parser")
-            # 找到teasers list organic类下所有类名为title的tag
-            raw_tags = soup.find(attrs={'class': 'teasers list organic'}).find_all(attrs={'class': 'title'})
-            # 如果没有找到匹配的结果，说明已经爬取完毕，退出循环
-            if len(raw_tags) == 0:
+            # 解析目录页，获取文档url
+            urls = self._parse(page_cnt)
+            # 返回空列表，说明已到达无效目录页，退出循环
+            if len(urls) == 0:
                 break
-            for t in raw_tags:
-                # 获取t第一个子tag中的href属性
-                url = t.contents[0]['href']
-                # 将获取到的url加入队列
-                self.queue.append(url)
+            # 将文档url存入队列
+            for i in urls:
+                self.queue.append(i)
             page_cnt += 1
         self.is_working = False
         self._logger.debug('Done')
+
+    @abstractmethod
+    def _parse(self, page_cnt) -> list:
+        """
+                :param page_cnt: 页码
+                :return: 文档url列表
+                """
+        pass
