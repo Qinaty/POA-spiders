@@ -52,6 +52,6 @@ if __name__ == '__main__':
         pass
 
     um = CNNURLManager()
-    spider = CNNSpider(dir_=path, url_manager=um, maximum=10)
+    spider = CNNSpider(dir_=path, url_manager=um, maximum=100)
 
     spider.run()
