@@ -64,7 +64,7 @@ class BaseURLManager:
         while page_cnt != self.end_page:
             self._logger.debug(f'Parsing page {page_cnt}')
             # 解析目录页，获取文档url
-            urls = self._parse(page_cnt)
+            urls = self.parse(page_cnt)
             # 返回空列表，说明已到达无效目录页，退出循环
             if len(urls) == 0:
                 break
@@ -76,7 +76,7 @@ class BaseURLManager:
         self._logger.debug('Done')
 
     @abstractmethod
-    def _parse(self, page_cnt) -> list:
+    def parse(self, page_cnt) -> list:
         """
                 :param page_cnt: 页码
                 :return: 文档url列表

@@ -5,7 +5,7 @@ BaseSpider定义文件
 import os
 from abc import abstractmethod
 
-from src.base.URLManager import BaseURLManager
+from src.base.basic_url_manager import BaseURLManager
 from src.base.utility import *
 
 
@@ -51,7 +51,7 @@ class BaseSpider:
             url = self._url_manage.new_url()
             self._logger.debug(f'New url: {url}')
             try:
-                title, text = self._parse(url)
+                title, text = self.parse(url)
             except Exception as e:
                 self._logger.error(e)
                 continue
@@ -64,7 +64,7 @@ class BaseSpider:
         self._logger.debug('Done')
 
     @abstractmethod
-    def _parse(self, url) -> (str, str):
+    def parse(self, url) -> (str, str):
         """
         :param url: 文档url
         :return: (文档标题, 文档内容)
