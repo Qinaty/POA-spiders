@@ -5,8 +5,8 @@ BaseSpider定义文件
 import os
 from abc import abstractmethod
 
-from .basic_url_manager import BaseURLManager
-from .utility import *
+from .base_url_manager import BaseURLManager
+from .utilities import *
 
 
 class BaseSpider:

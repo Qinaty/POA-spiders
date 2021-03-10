@@ -5,7 +5,7 @@ BaseURLManager定义文件
 from threading import Thread
 from abc import abstractmethod
 
-from .utility import *
+from .utilities import *
 
 
 class BaseURLManager:
