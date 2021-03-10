@@ -20,7 +20,7 @@ Inherit `BaseURLManager` and `BaseSpider` from `base` package, then overwrite th
 
 `BaseURLManager.parse()` receives the page count of a particular catalog and returns document urls on that catalog page.
 
-`BaseSpider.parse()` receives the document url and returns useful content on that page.
+`BaseSpider.parse()` receives a document url and returns useful content on that page.
 
 ## TODO list
 
