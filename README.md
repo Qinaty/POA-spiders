@@ -1,5 +1,5 @@
 # POA-spiders
-Web crawlers used in Public Opinions Analysis
+Web spiders used in Public Opinions Analysis
 
 ## Tested Environment
 > + Windows 10 Pro 64-bit 20H2
