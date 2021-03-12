@@ -1,4 +1,5 @@
 from base import *
+from base.utilities.data_loader import DataLoader
 from datetime import date
 
 USER = 'root'

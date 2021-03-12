@@ -5,25 +5,6 @@
 from random import choice
 from json import load
 from requests import get
-import logging
-
-# 配置日志格式和显示等级，仅在本模块内使用，外部不可见
-_FORMAT = '[%(name)-10s] %(levelname)-8s: %(message)s'
-_LEVEL = logging.DEBUG
-
-
-def get_logger(name: str) -> logging.Logger:
-    """
-    :param name: 日志记录器的名字
-    :return: 以name命名的日志记录器
-    """
-    formatter = logging.Formatter(fmt=_FORMAT)
-    handler = logging.StreamHandler()
-    handler.setFormatter(formatter)
-    logger = logging.getLogger(name)
-    logger.addHandler(handler)
-    logger.setLevel(_LEVEL)
-    return logger
 
 
 def get_html(url: str) -> bytes:
