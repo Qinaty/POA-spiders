@@ -2,7 +2,7 @@ from base import *
 from datetime import date
 
 USER = 'root'
-PASSWORD = ''
+PASSWORD = 'sy100109'
 HOST = 'localhost'
 PORT = '3306'
 
@@ -20,6 +20,10 @@ atc = Article(
     pic_url='www.azhepic.com',
     type='media'
 )
-dl = DataLoader(database_url=f'mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/test')
+
+dl = DataLoader(
+    server=f'mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}',
+    database='test_db'
+)
 
 dl.insert(atc)
