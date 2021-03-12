@@ -2,7 +2,7 @@ from base import *
 from datetime import date
 
 USER = 'root'
-PASSWORD = 'sy100109'
+PASSWORD = ''
 HOST = 'localhost'
 PORT = '3306'
 
