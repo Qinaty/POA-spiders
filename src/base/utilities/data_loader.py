@@ -2,13 +2,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 from sqlalchemy.orm import sessionmaker
 
-from .utilities import get_logger
+from .logger import Logger
 from .models import *
 
 
-class DataLoader:
+class DataLoader(Logger):
     def __init__(self, server: str, database: str):
-        self._logger = get_logger(self.__class__.__name__)
+        super().__init__()
         engine = create_engine(server)
         try:
             engine.execute(f'CREATE DATABASE {database}')

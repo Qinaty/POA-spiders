@@ -9,21 +9,21 @@ from .base_url_manager import BaseURLManager
 from .utilities import *
 
 
-class BaseSpider:
+class BaseSpider(Logger):
     """
     从URLManager处获取url并解析，将内容存储到本地
     """
 
-    def __init__(self, dir_: str, url_manager: BaseURLManager, maximum=-1):
+    def __init__(self, server: str, database: str, url_manager: BaseURLManager, maximum=-1):
         """
         :param dir_: 文档存储路径
         :param url_manager: URL管理器
         :param maximum: 爬取的最大文章数，默认为无穷
         """
-        self.dir_ = dir_
+        super().__init__()
         self.maximum = maximum
         self._url_manage = url_manager
-        self._logger = get_logger(self.__class__.__name__)
+        self.dl = DataLoader(server, database)
 
     def run(self):
         self._logger.debug('Started running')
@@ -51,22 +51,20 @@ class BaseSpider:
             url = self._url_manage.new_url()
             self._logger.debug(f'New url: {url}')
             try:
-                title, text = self.parse(url)
+                atc = self.parse(url)
             except Exception as e:
                 self._logger.error(e)
                 continue
-            path = f'{os.path.join(self.dir_, title)}.txt'
-            # 将结果写入文档
-            with open(path, 'w') as f:
-                f.write(f'{text}\n')
+            # 将结果写入数据库
+            self.dl.insert(atc)
             cnt += 1
 
         self._logger.debug('Done')
 
     @abstractmethod
-    def parse(self, url) -> (str, str):
+    def parse(self, url) -> Article:
         """
         :param url: 文档url
-        :return: (文档标题, 文档内容)
+        :return: Article
         """
         pass

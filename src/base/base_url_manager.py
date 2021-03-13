@@ -5,10 +5,10 @@ BaseURLManager定义文件
 from threading import Thread
 from abc import abstractmethod
 
-from .utilities import *
+from .utilities.logger import Logger
 
 
-class BaseURLManager:
+class BaseURLManager(Logger):
     """
     从目录页获取文章URL，为Spider提供待爬取的URL
     """
@@ -20,13 +20,13 @@ class BaseURLManager:
         :param start_page:开始目录页码
         :param end_page:结束目录页码, 默认为无穷
         """
+        super().__init__()
         self.start_page = start_page
         self.end_page = end_page
         # url队列
         self.queue = list()
         # 工作状态
         self.is_working = False
-        self._logger = get_logger(self.__class__.__name__)
 
     @property
     def is_empty(self) -> bool:
