@@ -61,7 +61,6 @@ class CNNSpider(BaseSpider):
         atc = url2atc[url]
         atc.content = text
         del url2atc[url]
-        print(atc)
         return atc
 
 
