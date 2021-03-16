@@ -6,7 +6,7 @@ from base import *
 from db_info import *
 
 # 构建映射url->article
-url2atc = dict()
+_url2atc = dict()
 
 
 class CNNURLManager(BaseURLManager):
@@ -38,7 +38,7 @@ class CNNURLManager(BaseURLManager):
                     pic_url=i['thumbnail'],
                     type='passage'
                 )
-                url2atc[url] = act
+                _url2atc[url] = act
 
                 urls.append(url)
 
@@ -58,14 +58,13 @@ class CNNSpider(BaseSpider):
         text = ''
         for i in raw_text:
             text += f'{i.text}\n'
-        atc = url2atc[url]
+        atc = _url2atc[url]
         atc.content = text
-        del url2atc[url]
+        del _url2atc[url]
         return atc
 
 
 if __name__ == '__main__':
-    db = './results/CNN'
     um = CNNURLManager()
     spider = CNNSpider(
         server=SERVER,

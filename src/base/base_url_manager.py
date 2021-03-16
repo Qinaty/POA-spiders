@@ -3,12 +3,12 @@ BaseURLManager定义文件
 """
 
 from threading import Thread
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
-from .utilities.logger import Logger
+from .utilities import get_logger
 
 
-class BaseURLManager(Logger):
+class BaseURLManager(ABC):
     """
     从目录页获取文章URL，为Spider提供待爬取的URL
     """
@@ -20,7 +20,7 @@ class BaseURLManager(Logger):
         :param start_page:开始目录页码
         :param end_page:结束目录页码, 默认为无穷
         """
-        super().__init__()
+        self._logger = get_logger(self.__class__.__name__)
         self.start_page = start_page
         self.end_page = end_page
         # url队列
