@@ -1,6 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, TEXT, DATE, ENUM
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, TEXT, DATE, ENUM, LONGTEXT
 
 Base = declarative_base()
 
@@ -13,9 +13,9 @@ class Article(Base):
     url = Column(TEXT, nullable=False)
     title = Column(VARCHAR(256), nullable=False)
     date = Column(DATE, nullable=False)
-    content = Column(TEXT, nullable=False)
+    content = Column(LONGTEXT, nullable=False)
     authors = Column(TEXT)
-    abstract = Column(TEXT)
+    abstract = Column(LONGTEXT)
     location = Column(VARCHAR(32))
     section = Column(VARCHAR(32))
     category = Column(VARCHAR(32))
