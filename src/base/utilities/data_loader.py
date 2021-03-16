@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.exc import ProgrammingError
+from sqlalchemy.exc import ProgrammingError, OperationalError
 from sqlalchemy.orm import sessionmaker
 
 from .functions import get_logger
@@ -17,7 +17,10 @@ class DataLoader:
             pass
         engine.execute(f'USE {database}')
         self._Session = sessionmaker(bind=engine)
-        Base.metadata.create_all(engine)
+        try:
+            Base.metadata.create_all(engine)
+        except OperationalError:
+            pass
 
     def insert(self, atc: Article):
         self._logger.debug(f'trying to insert new article: {atc}')
