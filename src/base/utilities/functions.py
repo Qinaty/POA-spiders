@@ -24,7 +24,6 @@ def get_html(url: str) -> bytes:
     if not hasattr(get_html, 'ua_pool'):
         simplefilter('ignore', InsecureRequestWarning)
         with open('base\\user_agents.json', 'r') as f:
-            get_html.ua_pool = load(f)['user-agents']
 
     # 随机从ua_pool中取出一条user-agent
     ua = choice(get_html.ua_pool)

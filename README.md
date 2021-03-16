@@ -7,11 +7,6 @@ Web spiders used in Public Opinions Analysis
 
 ## Dependencies
 ```commandline
-pip install beautifulsoup4
-pip install requests
-```
-or just
-```commandline
 pip install -r requirements.txt
 ```
 

@@ -1,4 +1,4 @@
+SQLAlchemy
 requests
 beautifulsoup4
-SQLAlchemy
 pymysql
