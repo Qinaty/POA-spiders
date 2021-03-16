@@ -9,7 +9,7 @@ from urllib.request import getproxies
 import logging
 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from requests import get
+from requests import get, Session
 
 _FORMAT = '[%(name)-10s] %(levelname)-8s: %(message)s'
 _LEVEL = logging.DEBUG
@@ -21,21 +21,20 @@ def get_html(url: str) -> bytes:
     :param url: 待解析URL字符串
     :return: url对应的二进制html
     """
-    if not hasattr(get_html, 'ua_pool'):
+    # 初次使用，配置session
+    if not hasattr(get_html, 'session'):
         simplefilter('ignore', InsecureRequestWarning)
         with open('base\\utilities\\user_agents.json', 'r') as f:
-            get_html.ua_pool = load(f)['user-agents']
-
-    # 随机从ua_pool中取出一条user-agent
-    ua = choice(get_html.ua_pool)
-    # 设置请求头
-    headers = {'user-agent': ua}
-    # 设置代理
+            ua = choice(load(f)['user-agents'])
+        headers = {'user-agent': ua}
+        session = Session()
+        session.headers.update(headers)
+        session.verify = False
+        get_html.session = session
     proxies = getproxies()
     if 'https' in proxies.keys():
         proxies['https'] = proxies['https'].replace('s', '')
-    # 获取网页内容
-    html = get(url, headers=headers, proxies=proxies, verify=False).content
+    html = get_html.session.get(url, proxies=proxies).content
     return html
 
 

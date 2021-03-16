@@ -70,7 +70,6 @@ if __name__ == '__main__':
         server=SERVER,
         database=DATABASE,
         url_manager=um,
-        maximum=10
     )
 
     spider.run()
