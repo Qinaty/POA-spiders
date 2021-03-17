@@ -3,7 +3,7 @@
 """
 
 from random import choice
-from json import load
+from json import load, dumps
 from warnings import simplefilter
 from urllib.request import getproxies
 import logging
@@ -59,3 +59,27 @@ def get_logger(name) -> logging.Logger:
     logger.addHandler(handler)
     logger.setLevel(_LEVEL)
     return logger
+
+
+def post_html(url: str, data) -> bytes:
+    """
+    发送post请求并接收response
+    :param url: request的url字符串
+    :param data: request的body文件
+    :return:
+    """
+    # 初次使用，配置session
+    if not hasattr(post_html, 'session'):
+        simplefilter('ignore', InsecureRequestWarning)
+        with open('base\\utilities\\user_agents.json', 'r') as f:
+            ua = choice(load(f)['user-agents'])
+        headers = {'user-agent': ua}
+        session = Session()
+        session.headers.update(headers)
+        session.verify = False
+        get_html.session = session
+    proxies = getproxies()
+    if 'https' in proxies.keys():
+        proxies['https'] = proxies['https'].replace('s', '')
+    html = get_html.session.post(url, proxies=proxies, data=dumps(data)).content
+    return html
