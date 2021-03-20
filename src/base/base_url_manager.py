@@ -63,15 +63,20 @@ class BaseURLManager(ABC):
         page_cnt = self.start_page
         while page_cnt != self.end_page:
             self._logger.debug(f'Parsing page {page_cnt}')
+            page_cnt += 1
             # 解析目录页，获取文档url
-            urls = self.parse(page_cnt)
+
+            try:
+                urls = self.parse(page_cnt)
+            except Exception as e:
+                self._logger.error(e)
+                continue
             # 返回空列表，说明已到达无效目录页，退出循环
             if len(urls) == 0:
                 break
             # 将文档url存入队列
             for i in urls:
                 self.queue.append(i)
-            page_cnt += 1
         self.is_working = False
         self._logger.debug('Done')
 

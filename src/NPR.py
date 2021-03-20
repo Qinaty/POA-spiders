@@ -1,7 +1,7 @@
 from json import loads
 
 from bs4 import BeautifulSoup
-import json
+
 from src.base import *
 from src.db_info import *
 
@@ -16,18 +16,18 @@ class NPRURLManager(BaseURLManager):
 
     def parse(self, page_cnt) -> list:
         # 构造目录页json
-        dir_json ={
+        dir_json = {
             "requests": [
                 {
                     "indexName": "nprorg",
-                    "params": f"query=China&maxValuesPerFacet=10&page={page_cnt-1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters="
+                    "params": f"query=China&maxValuesPerFacet=10&page={page_cnt - 1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters="
                 },
                 {
                     "indexName": "station",
-                    "params": f"query=China&hitsPerPage=3&maxValuesPerFacet=10&page={page_cnt-1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters="
+                    "params": f"query=China&hitsPerPage=3&maxValuesPerFacet=10&page={page_cnt - 1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters="
                 }
-              ]
-          }
+            ]
+        }
         # 构造目录页url
         dir_url = 'https://o2dg6462xl-dsn.algolia.net/1/indexes/*/queries?x-algolia-application-id=O2DG6462XL&x-algolia-api-key=40f2ee3bc56fa66dd5551ca1496ff941'
         # 获取目录页html
@@ -36,20 +36,26 @@ class NPRURLManager(BaseURLManager):
         urls = []
         for i in res:
             url = 'https://www.npr.org' + i['url']
+
+            try:
+                pic_url = i['image']['url']
+            except KeyError:
+                pic_url = None
+
             act = Article(
                 publisher='NPR',
                 url='https://www.npr.org' + i['url'],
                 title=i['title'],
                 date=i['displayDate']['dateTime'],
-                author=None, # 这一项交给NPRSpider填
+                authors=None,  # 这一项交给NPRSpider填
                 content=None,  # 这一项交给NPRSpider填
                 abstract=i['bodyText'],
                 location=None,
-                #section=i['tags'],
-                #category=i['topics'],
+                # section=i['tags'],
+                # category=i['topics'],
                 section=None,
                 category=None,
-                pic_url=i['image']['url'] if i['image']!={} else None,
+                pic_url=pic_url,
                 type=i['type']
             )
             _url2atc[url] = act
@@ -68,8 +74,8 @@ class NPRSpider(BaseSpider):
         # 构造解析器
         soup = BeautifulSoup(html, features="html.parser")
         # 获取内容
-        raw_text = soup.find('div', attrs={'id':'storytext'}).find_all('p', recursive=False)
-        author = soup.find('p', attrs={'class':'byline__name byline__name--block'})
+        raw_text = soup.find('div', attrs={'id': 'storytext'}).find_all('p', recursive=False)
+        author = soup.find('p', attrs={'class': 'byline__name byline__name--block'})
         if author:
             author = author.text.strip()
         text = ''

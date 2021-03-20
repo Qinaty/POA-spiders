@@ -54,13 +54,11 @@ class NYTURLManager(BaseURLManager):
 
             try:
                 authors = node['bylines'][0]['renderedRepresentation'][3:]
-            except Exception as e:
-                self._logger.error(e)
+            except KeyError or IndexError:
                 authors = None
             try:
                 pic_url = node['promotionalMedia']['crops'][0]['renditions'][0]['url']
-            except Exception as e:
-                self._logger.error(e)
+            except KeyError or IndexError:
                 pic_url = None
 
             act = Article(

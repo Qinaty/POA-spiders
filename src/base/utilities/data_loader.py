@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.exc import ProgrammingError, OperationalError
+from sqlalchemy.exc import ProgrammingError, OperationalError, DataError
 from sqlalchemy.orm import sessionmaker
 
 from .functions import get_logger
@@ -25,6 +25,9 @@ class DataLoader:
     def insert(self, atc: Article):
         self._logger.debug(f'trying to insert new article: {atc}')
         session = self._Session()
-        session.add(atc)
-        session.commit()
+        try:
+            session.add(atc)
+            session.commit()
+        except DataError:
+            self._logger.error('data error', exc_info=True)
         self._logger.debug(f'insertion finished successfully')
