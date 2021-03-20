@@ -15,11 +15,12 @@ _FORMAT = '[%(name)-10s] %(levelname)-8s: %(message)s'
 _LEVEL = logging.DEBUG
 
 
-def get_html(url: str) -> bytes:
+def get_html(url: str, headers_args: dict = None) -> bytes:
     """
     解析url获得html
     :param url: 待解析URL字符串
     :return: url对应的二进制html
+    :param headers_args: 请求头附加参数
     """
     # 初次使用，配置session
     if not hasattr(get_html, 'session'):
@@ -27,6 +28,8 @@ def get_html(url: str) -> bytes:
         with open('base\\utilities\\user_agents.json', 'r') as f:
             ua = choice(load(f)['user-agents'])
         headers = {'user-agent': ua}
+        if headers_args is not None:
+            headers.update(headers_args)
         session = Session()
         session.headers.update(headers)
         session.verify = False
@@ -61,11 +64,12 @@ def get_logger(name) -> logging.Logger:
     return logger
 
 
-def post_html(url: str, data) -> bytes:
+def post_html(url: str, data, headers_args: dict = None) -> bytes:
     """
     发送post请求并接收response
     :param url: request的url字符串
     :param data: request的body文件
+    :param headers_args: 请求头附加参数
     :return:
     """
     # 初次使用，配置session
@@ -74,6 +78,8 @@ def post_html(url: str, data) -> bytes:
         with open('base\\utilities\\user_agents.json', 'r') as f:
             ua = choice(load(f)['user-agents'])
         headers = {'user-agent': ua}
+        if headers_args is not None:
+            headers.update(headers_args)
         session = Session()
         session.headers.update(headers)
         session.verify = False

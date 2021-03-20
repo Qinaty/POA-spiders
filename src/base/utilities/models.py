@@ -14,7 +14,7 @@ class Article(Base):
     title = Column(TEXT, nullable=False)
     date = Column(DATE, nullable=False)
     content = Column(LONGTEXT, nullable=False)
-    author = Column(TEXT)
+    authors = Column(TEXT)
     abstract = Column(TEXT)
     location = Column(TEXT)
     section = Column(VARCHAR(32))
