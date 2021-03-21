@@ -2,25 +2,25 @@
 BaseSpider定义文件
 """
 
-import os
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 from .base_url_manager import BaseURLManager
 from .utilities import *
 
 
-class BaseSpider(Logger):
+class BaseSpider(ABC):
     """
     从URLManager处获取url并解析，将内容存储到本地
     """
 
     def __init__(self, server: str, database: str, url_manager: BaseURLManager, maximum=-1):
         """
-        :param dir_: 文档存储路径
+        :param server: mysql服务器
+        :param database: 数据库名称
         :param url_manager: URL管理器
         :param maximum: 爬取的最大文章数，默认为无穷
         """
-        super().__init__()
+        self._logger = get_logger(self.__class__.__name__)
         self.maximum = maximum
         self._url_manage = url_manager
         self.dl = DataLoader(server, database)
@@ -68,3 +68,4 @@ class BaseSpider(Logger):
         :return: Article
         """
         pass
+

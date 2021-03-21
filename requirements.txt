@@ -1,0 +1,5 @@
+SQLAlchemy
+requests
+beautifulsoup4
+pymysql
+cryptography

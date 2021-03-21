@@ -1,14 +1,14 @@
 from sqlalchemy import create_engine
-from sqlalchemy.exc import ProgrammingError
+from sqlalchemy.exc import ProgrammingError, OperationalError, DataError
 from sqlalchemy.orm import sessionmaker
 
-from .logger import Logger
+from .functions import get_logger
 from .models import *
 
 
-class DataLoader(Logger):
+class DataLoader:
     def __init__(self, server: str, database: str):
-        super().__init__()
+        self._logger = get_logger(self.__class__.__name__)
         engine = create_engine(server)
         try:
             engine.execute(f'CREATE DATABASE {database}')
@@ -17,11 +17,17 @@ class DataLoader(Logger):
             pass
         engine.execute(f'USE {database}')
         self._Session = sessionmaker(bind=engine)
-        Base.metadata.create_all(engine)
+        try:
+            Base.metadata.create_all(engine)
+        except OperationalError:
+            pass
 
     def insert(self, atc: Article):
         self._logger.debug(f'trying to insert new article: {atc}')
         session = self._Session()
-        session.add(atc)
-        session.commit()
+        try:
+            session.add(atc)
+            session.commit()
+        except DataError:
+            self._logger.error('data error', exc_info=True)
         self._logger.debug(f'insertion finished successfully')
