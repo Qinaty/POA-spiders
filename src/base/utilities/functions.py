@@ -25,7 +25,8 @@ def get_html(url: str, headers_args: dict = None) -> bytes:
     # 初次使用，配置session
     if not hasattr(get_html, 'session'):
         simplefilter('ignore', InsecureRequestWarning)
-        with open('base\\utilities\\user_agents.json', 'r') as f:
+        # with open('base\\utilities\\user_agents.json', 'r') as f:
+        with open('C:\\Users\\Tango\\Documents\\GitHub\\POA-spiders\\src\\base\\utilities\\user_agents.json', 'r') as f:
             ua = choice(load(f)['user-agents'])
         headers = {'user-agent': ua}
         if headers_args is not None:
