@@ -3,12 +3,12 @@ BaseURLManager定义文件
 """
 
 from threading import Thread
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
-from src.base.utility import *
+from .utilities import get_logger
 
 
-class BaseURLManager:
+class BaseURLManager(ABC):
     """
     从目录页获取文章URL，为Spider提供待爬取的URL
     """
@@ -20,13 +20,13 @@ class BaseURLManager:
         :param start_page:开始目录页码
         :param end_page:结束目录页码, 默认为无穷
         """
+        self._logger = get_logger(self.__class__.__name__)
         self.start_page = start_page
         self.end_page = end_page
         # url队列
         self.queue = list()
         # 工作状态
         self.is_working = False
-        self._logger = get_logger(self.__class__.__name__)
 
     @property
     def is_empty(self) -> bool:
@@ -63,20 +63,25 @@ class BaseURLManager:
         page_cnt = self.start_page
         while page_cnt != self.end_page:
             self._logger.debug(f'Parsing page {page_cnt}')
+            page_cnt += 1
             # 解析目录页，获取文档url
-            urls = self._parse(page_cnt)
+
+            try:
+                urls = self.parse(page_cnt)
+            except Exception as e:
+                self._logger.error(e)
+                continue
             # 返回空列表，说明已到达无效目录页，退出循环
             if len(urls) == 0:
                 break
             # 将文档url存入队列
             for i in urls:
                 self.queue.append(i)
-            page_cnt += 1
         self.is_working = False
         self._logger.debug('Done')
 
     @abstractmethod
-    def _parse(self, page_cnt) -> list:
+    def parse(self, page_cnt) -> list:
         """
                 :param page_cnt: 页码
                 :return: 文档url列表
