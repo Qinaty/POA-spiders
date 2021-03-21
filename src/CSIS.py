@@ -8,7 +8,7 @@ from src.db_info import *
 # 构建映射url->article
 _url2atc = dict()
 
-class BRKURLManager(BaseURLManager):
+class CSISURLManager(BaseURLManager):
 
     def __init__(self, start_page=1, end_page=-1):
         super().__init__(start_page, end_page)
@@ -63,7 +63,7 @@ class BRKURLManager(BaseURLManager):
         return urls
 
 
-class BRKSpider(BaseSpider):
+class CSISSpider(BaseSpider):
     def __init__(self, server: str, database: str, url_manager: BaseURLManager, maximum=-1):
         super().__init__(server, database, url_manager, maximum)
 
@@ -90,8 +90,8 @@ class BRKSpider(BaseSpider):
 
 
 if __name__ == '__main__':
-    um = BRKURLManager()
-    spider = BRKSpider(
+    um = CSISURLManager()
+    spider = CSISSpider(
         server=SERVER,
         database=DATABASE,
         url_manager=um,
