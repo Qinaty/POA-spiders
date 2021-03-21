@@ -16,17 +16,17 @@ class NPRURLManager(BaseURLManager):
 
     def parse(self, page_cnt) -> list:
         # 构造目录页json
-        dir_json = {
-            "requests": [
-                {
-                    "indexName": "nprorg",
-                    "params": f"query=China&maxValuesPerFacet=10&page={page_cnt - 1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters="
-                },
-                {
-                    "indexName": "station",
-                    "params": f"query=China&hitsPerPage=3&maxValuesPerFacet=10&page={page_cnt - 1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters="
-                }
-            ]
+        time_stamp = 1560643200 #起始时间戳
+        dir_json ={"requests":
+                [
+                     {"indexName": "nprorg",
+                      "params": f"query=China&maxValuesPerFacet=10&page={page_cnt-1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters=&numericFilters=%5B%22lastModifiedDate%3C%3D{time_stamp}%22%5D"},
+                     {"indexName": "nprorg",
+                      "params": f"query=China&maxValuesPerFacet=10&page={page_cnt-1}&analytics=false&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=false&filters=&hitsPerPage=1&attributesToRetrieve=%5B%5D&attributesToHighlight=%5B%5D&attributesToSnippet=%5B%5D&tagFilters=&facets=lastModifiedDate"},
+                     {"indexName": "station",
+                      "params": f"query=China&hitsPerPage=3&maxValuesPerFacet=10&page={page_cnt-1}&analytics=true&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=true&filters=&facets=%5B%22hasAudio%22%2C%22lastModifiedDate%22%2C%22shows%22%5D&tagFilters=&numericFilters=%5B%22lastModifiedDate%3C%3D{time_stamp}%22%5D"},
+                     {"indexName": "station",
+                      "params": f"query=China&hitsPerPage=1&maxValuesPerFacet=10&page={page_cnt-1}&analytics=false&analyticsTags=%5B%22npr.org%2Fsearch%22%5D&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&clickAnalytics=false&filters=&attributesToRetrieve=%5B%5D&attributesToHighlight=%5B%5D&attributesToSnippet=%5B%5D&tagFilters=&facets=lastModifiedDate"}]
         }
         # 构造目录页url
         dir_url = 'https://o2dg6462xl-dsn.algolia.net/1/indexes/*/queries?x-algolia-application-id=O2DG6462XL&x-algolia-api-key=40f2ee3bc56fa66dd5551ca1496ff941'
@@ -42,21 +42,24 @@ class NPRURLManager(BaseURLManager):
             except KeyError:
                 pic_url = None
 
+            try:
+                abstract = i['bodyText']
+            except Exception as e:
+                self._logger.error(e)
+                abstract = None
             act = Article(
                 publisher='NPR',
                 url='https://www.npr.org' + i['url'],
                 title=i['title'],
                 date=i['displayDate']['dateTime'],
-                authors=None,  # 这一项交给NPRSpider填
+                author=None, # 这一项交给NPRSpider填
                 content=None,  # 这一项交给NPRSpider填
-                abstract=i['bodyText'],
+                abstract=abstract,
                 location=None,
-                # section=i['tags'],
-                # category=i['topics'],
-                section=None,
-                category=None,
+                section=str(i['tags']) if 'tags' in i else None,
+                category=str(i['topics']) if 'topics' in i else None,
                 pic_url=pic_url,
-                type=i['type']
+                type=i['type'] if 'topics' in i else None,
             )
             _url2atc[url] = act
 
