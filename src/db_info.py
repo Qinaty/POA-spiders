@@ -1,5 +1,5 @@
 _USER = 'root'
-_PASSWORD = ''
+_PASSWORD = '123456'
 _HOST = 'localhost'
 _PORT = '3306'
 
