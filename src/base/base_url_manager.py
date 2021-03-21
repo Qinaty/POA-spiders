@@ -5,7 +5,7 @@ BaseURLManager定义文件
 from threading import Thread
 from abc import ABC, abstractmethod
 
-from base.utilities import get_logger
+from .utilities import get_logger
 
 
 class BaseURLManager(ABC):
