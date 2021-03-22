@@ -18,7 +18,7 @@ class Article(Base):
     abstract = Column(TEXT)
     location = Column(TEXT)
     section = Column(VARCHAR(32))
-    category = Column(VARCHAR(32))
+    category = Column(TEXT)
     pic_url = Column(TEXT)
     type = Column(VARCHAR(32))
 
